@@ -20,4 +20,15 @@ describe Transaction, type: :model do
     expect(t.source).to be_nil
     expect(t.target).to be_nil
   end
+
+  it 'kind: returns transaction type deposit/withdraw/transfer' do
+    w1 = create :wallet
+    w2 = create :wallet
+    t = create :transaction, source_id: w1.id, target_id: w2.id
+    expect(t.kind).to eq 'transfer'
+    t = create :transaction, source_id: nil, target_id: w2.id
+    expect(t.kind).to eq 'deposit'
+    t = create :transaction, source_id: w1.id, target_id: nil
+    expect(t.kind).to eq 'withdraw'
+  end
 end
