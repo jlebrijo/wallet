@@ -44,3 +44,13 @@ Tasks:
     * Create Owner: Creates Users/Stocks/Teams with name.
     * Show: balance and transactions.
   * Transaction: Deposit/Withdraw/Transfer.
+
+Run this example:
+```bash
+git clone git@github.com:jlebrijo/wallet.git
+cd wallet/
+bundle
+yarn install --check-files
+rails db:migrate RAILS_ENV=development
+rails s
+```

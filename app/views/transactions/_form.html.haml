@@ -7,11 +7,11 @@
     = render partial: 'layouts/form_errors', locals: { form: f }
 
     .form-inputs
-      = f.input :source_id, input_html: { value: params[:source_id] || @transaction.source_id }#, as: :hidden
+      = f.input :source_id, input_html: { value: params[:source_id] || @transaction.source_id }, as: :hidden
       - if @kind == 'transfer'
         = f.input :target_id, collection: Wallet.all, value_method: :id, include_blank: false
       - else
-        = f.input :target_id, input_html: { value: params[:target_id] || @transaction.target_id }#, as: :hidden
+        = f.input :target_id, input_html: { value: params[:target_id] || @transaction.target_id }, as: :hidden
       = f.input :amount
 
   .modal-footer
