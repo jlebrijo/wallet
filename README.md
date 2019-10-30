@@ -20,7 +20,7 @@ Requirements:
 Tasks:
 - [x] App initialize.
 - [x] Initialize testing environment rspec/guard.
-- [ ] Creating models and relations:
+- [x] Creating models and relations:
   * Users, Stocks and Teams: with a name (required) and one wallet.
   * Wallet: have many transactions. It will be wallatable polymorphic association, 
     which implements STI pattern in Rails.
