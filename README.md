@@ -26,12 +26,12 @@ Tasks:
     which implements STI pattern in Rails.
   * Transactions: with source, target and amount(required). Belongs to Wallet.
 - [ ] Create proper calculations:
+  * Wallet Balance is target_transactions minus source_transactions. And zero if
+    no transactions.
   * Transaction kinds and Wallet actions:
     * Deposit: Amount without source wallet
     * Withdraw: Amount without target wallet
     * Transfer: Amount with source/target wallet
-  * Wallet Balance is target_transactions minus source_transactions. And zero if
-    no transactions.
   * Transaction validations:
     * Before create transaction: amount should be minor or equal to source wallet
       actual balance

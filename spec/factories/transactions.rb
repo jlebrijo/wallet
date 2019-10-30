@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :transaction do
-    source factory: :wallet
-    target factory: :wallet
+    source_id { nil }
+    target_id { nil }
     amount { 1.5 }
   end
 end
