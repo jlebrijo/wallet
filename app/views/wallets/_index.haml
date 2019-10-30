@@ -1,0 +1,23 @@
+= render partial: 'layouts/flash_messages'
+
+%table.table.table-striped.table-sm
+  %thead
+    %tr
+      %th Owner
+      %th Type
+      %th Balance
+      %th
+
+  %tbody
+    - @wallets.each do |wallet|
+      %tr{data: {id: wallet.id}}
+        %td= wallet.wallatable.name
+        %td= wallet.wallatable_type
+        %td= wallet.balance
+        %td
+          = link_to new_transaction_path(kind: 'deposit'), class: 'btn btn-primary btn-sm mr-1', title: 'Deposit', data: { action:'wallets#show' }, remote: true do
+            %i.fa.fa-lg.fa-sign-in
+          = link_to new_transaction_path(kind: 'transfer'), class: 'btn btn-info btn-sm mr-1', title: 'Transfer', data: { action:'wallets#show' }, remote: true do
+            %i.fa.fa-lg.fa-exchange
+          = link_to new_transaction_path(kind: 'withdraw'), class: 'btn btn-danger btn-sm mr-1', title: 'Withdraw', data: { action:'wallets#show' }, remote: true do
+            %i.fa.fa-lg.fa-sign-out

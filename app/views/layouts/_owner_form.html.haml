@@ -1,0 +1,15 @@
+.modal-header
+  %h5.modal-title New Owner
+  %button.close{data: {dismiss: "modal"}} ×
+
+= simple_form_for @owner, data: {action:'ajax:complete->wallets#submit'}, remote: true do |f|
+  .modal-body
+    = render partial: 'layouts/form_errors', locals: { form: f }
+
+    .form-inputs
+      -#= f.input :wallatable_type, collection: %w(User Team Stock)
+      = f.input :name
+
+  .modal-footer
+    %button.btn.btn-secondary{data: {dismiss: "modal"}, type: "button"} Close
+    = f.submit 'Save', class: 'btn btn-primary'

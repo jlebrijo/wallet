@@ -9,4 +9,6 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render partial: 'layouts/topbar'
+    = render partial: 'layouts/flash_messages'
+
     .container= yield
