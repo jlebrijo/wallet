@@ -1,0 +1,9 @@
+#wallets{data:{controller: 'wallets'}}
+  = link_to 'New Owner', new_wallet_path, class: 'btn btn-primary new mb-2', data:{action:'wallets#show'}
+
+  #index{data:{target: 'wallets.index'}}
+    -#= render partial: 'index'
+
+  #formModal.modal.fade
+    .modal-dialog
+      .modal-content{data:{target: 'wallets.modalContent'}}
