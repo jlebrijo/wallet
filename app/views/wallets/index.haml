@@ -1,7 +1,7 @@
 #wallets{data:{controller: 'wallets'}}
-  = link_to 'New User', new_wallet_path(owner_type: 'User'), class: 'btn btn-primary mb-2', data:{action:'wallets#show'}
-  = link_to 'New Team', new_wallet_path(owner_type: 'Team'), class: 'btn btn-primary mb-2', data:{action:'wallets#show'}
-  = link_to 'New Stock', new_wallet_path(owner_type: 'Stock'), class: 'btn btn-primary mb-2', data:{action:'wallets#show'}
+  = link_to 'New User', new_wallet_path(owner_type: 'User'), class: 'btn btn-primary mb-2 mt-2', data:{action:'wallets#show'}
+  = link_to 'New Team', new_wallet_path(owner_type: 'Team'), class: 'btn btn-primary mb-2 mt-2', data:{action:'wallets#show'}
+  = link_to 'New Stock', new_wallet_path(owner_type: 'Stock'), class: 'btn btn-primary mb-2 mt-2', data:{action:'wallets#show'}
 
   #index{data:{target: 'wallets.index'}}= render partial: 'index'
 

@@ -38,7 +38,7 @@ Tasks:
     * Amount should be bigger than 0
   * On Users/Stocks/Teams creation wallet should be created.
 - [x] Initialize frontend with Stimulusjs, Bootstrap, FontAwesome and SimpleForm.
-- [ ] Front end: View and actions
+- [x] Front end: View and actions
   * Wallet:
     * List owners.
     * Create Owner: Creates Users/Stocks/Teams with name.

@@ -1,0 +1,19 @@
+.modal-header
+  %h5.modal-title New #{@kind.capitalize}
+  %button.close{data: {dismiss: "modal"}} ×
+
+= simple_form_for @transaction, data: {action:'ajax:complete->wallets#submit'}, remote: true do |f|
+  .modal-body
+    = render partial: 'layouts/form_errors', locals: { form: f }
+
+    .form-inputs
+      = f.input :source_id, input_html: { value: params[:source_id] || @transaction.source_id }#, as: :hidden
+      - if @kind == 'transfer'
+        = f.input :target_id, collection: Wallet.all, value_method: :id, include_blank: false
+      - else
+        = f.input :target_id, input_html: { value: params[:target_id] || @transaction.target_id }#, as: :hidden
+      = f.input :amount
+
+  .modal-footer
+    %button.btn.btn-secondary{data: {dismiss: "modal"}, type: "button"} Close
+    = f.submit 'Save', class: 'btn btn-primary'

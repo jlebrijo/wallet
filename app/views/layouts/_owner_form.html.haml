@@ -7,7 +7,6 @@
     = render partial: 'layouts/form_errors', locals: { form: f }
 
     .form-inputs
-      -#= f.input :wallatable_type, collection: %w(User Team Stock)
       = f.input :name
 
   .modal-footer

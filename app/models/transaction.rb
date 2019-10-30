@@ -12,7 +12,7 @@ class Transaction < ApplicationRecord
   end
 
   def amount_less_or_equal_than_actual_blance
-    if source && (source.balance < amount)
+    if source && amount.present? && (source.balance < amount)
       errors.add :amount, 'should be minor or equal to source wallet actual balance'
     end
   end
