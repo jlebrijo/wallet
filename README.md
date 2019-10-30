@@ -25,7 +25,7 @@ Tasks:
   * Wallet: have many transactions. It will be wallatable polymorphic association, 
     which implements STI pattern in Rails.
   * Transactions: with source, target and amount(required). Belongs to Wallet.
-- [ ] Create proper calculations:
+- [x] Create proper calculations:
   * Wallet Balance is target_transactions minus source_transactions. And zero if
     no transactions.
   * Transaction kinds and Wallet actions:
