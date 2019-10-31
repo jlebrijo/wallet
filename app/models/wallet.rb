@@ -8,8 +8,13 @@ class Wallet < ApplicationRecord
   end
 
   def balance
+    balance_until Time.now
+  end
+
+  def balance_until(time)
     return 0 unless target_transactions.any?
-    target_transactions.pluck(:amount).sum - source_transactions.pluck(:amount).sum
+    target_transactions.where('created_at <= ?', time).pluck(:amount).sum -
+        source_transactions.where('created_at <= ?', time).pluck(:amount).sum
   end
 
   def deposit(amount)
@@ -22,5 +27,9 @@ class Wallet < ApplicationRecord
 
   def transfer_to(wallet, amount:)
     source_transactions.create amount: amount, target_id: wallet.id
+  end
+
+  def transactions
+    Transaction.where('source_id = :id OR target_id = :id', id: id).order('created_at desc')
   end
 end

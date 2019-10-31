@@ -21,3 +21,6 @@
               %i.fa.fa-lg.fa-exchange
             = link_to new_transaction_path(kind: 'withdraw', source_id: wallet.id), class: 'btn btn-danger btn-sm mr-1', title: 'Withdraw', data: { action:'wallets#show' }, remote: true do
               %i.fa.fa-lg.fa-sign-out
+            - if wallet.target_transactions.any?
+              = link_to transactions_path(wallet_id: wallet.id), class: 'btn btn-primary btn-sm mr-1', title: 'History', data: { action:'wallets#show' }, remote: true do
+                %i.fa.fa-lg.fa-eye

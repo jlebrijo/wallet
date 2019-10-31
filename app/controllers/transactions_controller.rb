@@ -1,4 +1,10 @@
 class TransactionsController < ApplicationController
+  def index
+    @wallet = Wallet.find params[:wallet_id]
+    @transactions = @wallet.transactions
+    render partial: 'index'
+  end
+
   def new
     @transaction = Transaction.new
     @kind = params[:kind]

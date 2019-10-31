@@ -1,0 +1,25 @@
+.modal-header
+  %h3 Balance: #{@wallet.balance}
+  %button.close{data: {dismiss: "modal"}} ×
+
+.modal-body
+  - if @transactions.any?
+    %table.table.table-striped.table-sm
+      %thead
+        %tr
+          %th Time
+          %th Type
+          %th Source
+          %th Target
+          %th Amount
+          %th Balance
+
+      %tbody
+        - @transactions.each do |t|
+          %tr{data: {id: t.id}}
+            %td #{time_ago_in_words t.created_at, include_seconds: true} ago
+            %td= t.kind.capitalize
+            %td= t.source
+            %td= t.target
+            %td= t.amount
+            %td= @wallet.balance_until t.created_at

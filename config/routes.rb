@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :teams, only: %i(new create)
   resources :stocks, only: %i(new create)
   resources :wallets, only: %i(index new create)
-  resources :transactions, only: %i(new create)
+  resources :transactions, only: %i(index new create)
 end
